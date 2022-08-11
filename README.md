@@ -101,7 +101,7 @@ def run(nre):
     ]
 
     token_address, _ = nre.deploy("UwuToken", arguments, alias=ALIAS)
-    print("UwuToken deployeado en", token_address)
+    print("UwuToken deployed at", token_address)
 
     supply = from_hex(nre.call("uwu_token", "totalSupply")[0])
     print("total supply:", from_decimals(supply))
