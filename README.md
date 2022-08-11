@@ -37,7 +37,13 @@ Run `init` to kickstart a new project. Nile will create the project directory st
 nile init
 ```
 
-## 2. Deploy a preset
+Now let's run a local StarkNet testing node so we can work locally, and leave it running for the rest of the steps:
+
+```bash
+nile node
+```
+
+## 2. Use a preset
 
 Rename `contracts/contract.cairo` to `contracts/UwuToken.cairo` and replace its contents with:
 
@@ -54,7 +60,8 @@ That's it! That's our ERC20 contract. What this does is to import the [ERC20 bas
 Let's try to compile it:
 
 ```
-(env) ➜  workshop nile compile
+(env) ➜  nile compile
+
 📁 Creating artifacts/abis to store compilation artifacts
 🤖 Compiling all Cairo contracts in the contracts directory
 🔨 Compiling contracts/UwuToken.cairo
@@ -125,6 +132,52 @@ def from_hex(x):
     return int(x, 16)
 ```
 
+There's a few things to note in here:
 
+- The script attempts to find or deploy an account controlled by the private key stored in the `ACCOUNT_A` environmental variable (see below).
+
+
+Create a `.env` file to store your private keys so the script can find them:
+
+```
+ACCOUNT_A=207965718267142127099503064836527205057
+ACCOUNT_B=671421270995030648365272050552079657182
+```
 
 ## 4. Write a custom contract (i.e. extend a library)
+
+Without inheritance or another language native extensibility system, we need to come up with our own rules to safely extend existing modules to e.g. build our own custom ERC20 based on a standard library one.
+
+To do this we follow our own [Extensibility pattern](https://docs.openzeppelin.com/contracts-cairo/0.3.1/extensibility) (recommended reading), which extends `library` modules like this pausable `transfer` function:
+
+```cairo
+%lang starknet
+
+from starkware.cairo.common.cairo_builtins import HashBuiltin
+from starkware.cairo.common.uint256 import Uint256
+from openzeppelin.security.pausable.library import Pausable
+from openzeppelin.token.erc20.library import ERC20
+
+(...)
+
+@external
+func transfer{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(recipient: felt, amount: Uint256) -> (success: felt):
+    Pausable.assert_not_paused()
+    ERC20.transfer(recipient, amount)
+    return (TRUE)
+end
+```
+
+The main problem with this is that we need to manually re-export every function in order to make it available (`transfer`, `transferFrom`, `approve`, etc) even if we don't want to extend or make any changes to it.
+
+Luckily, we have [Wizard](https://wizard.openzeppelin.com/cairo).
+
+With it, we can just add a `name`, `symbol`, premint amount and any features we want to our contract. In this example, I'll be creating the `UwuToken` and make it Pausable. Then I can copy to clipboard and paste it into `contracts/UwuTokenPausable.cairo`
+
+![Wizard for Cairo](wizard.png)
+
+## 5. Deploy to a public network
