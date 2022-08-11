@@ -220,7 +220,7 @@ end
 
 The main problem with this is that we need to manually re-export every function in order to make it available (`transfer`, `transferFrom`, `approve`, etc) even if we don't want to extend or make any changes to it.
 
-Luckily, we have [Wizard](https://wizard.openzeppelin.com/cairo).
+### Luckily, we have [Wizard](https://wizard.openzeppelin.com/cairo)
 
 With it, we can just add a `name`, `symbol`, premint amount and any features we want to our contract. In this example, I'll be creating the `UwuToken` and make it Pausable. Then I can copy to clipboard and paste it into `contracts/UwuTokenPausable.cairo`
 
