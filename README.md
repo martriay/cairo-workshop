@@ -49,7 +49,9 @@ from openzeppelin.token.erc20.presets.ERC20 import constructor
 
 
 
-That's it! That's our ERC20 contract. What this does is to import the [ERC20 basic preset](https://github.com/OpenZeppelin/cairo-contracts/blob/ad399728e6fcd5956a4ed347fb5e8ee731d37ec4/src/openzeppelin/token/erc20/presets/ERC20.cairo) and re-exporting it.  Let's try to compile it:
+That's it! That's our ERC20 contract. What this does is to import the [ERC20 basic preset](https://github.com/OpenZeppelin/cairo-contracts/blob/ad399728e6fcd5956a4ed347fb5e8ee731d37ec4/src/openzeppelin/token/erc20/presets/ERC20.cairo) and re-exporting it. 
+
+Let's try to compile it:
 
 ```
 (env) ➜  workshop nile compile
