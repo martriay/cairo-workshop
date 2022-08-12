@@ -2,6 +2,12 @@
 
 This repository works as an introductory guide to develop StarkNet smart contracts with the [Cairo](cairo-lang.org) programming language, the [OpenZeppelin Contracts for Cairo](https://github.com/OpenZeppelin/cairo-contracts/) library, and the [Nile](https://github.com/OpenZeppelin/nile/) development environment.
 
+#### Resources:
+
+- [Cairo by Example](https://perama-v.github.io/cairo/by-example/) (by Perama)
+- [StarkNet documentation](https://starknet.io/docs/)
+- [OpenZeppelin documentation](https://docs.openzeppelin.com/contracts-cairo)
+
 ## 1. Installation
 
 ### First time?
@@ -29,10 +35,13 @@ source env/bin/activate
 Install the [Nile](https://github.com/OpenZeppelin/nile) development environment and the [OpenZeppelin Contracts](https://github.com/OpenZeppelin/cairo-contracts/).
 
 ```bash
-pip install cairo-nile openzeppelin-cairo-contracts
+pip install cairo-lang cairo-nile==0.8.1b openzeppelin-cairo-contracts
 ```
 
-Run `init` to kickstart a new project. Nile will create the project directory structure and install [the Cairo language](https://www.cairo-lang.org/docs/quickstart.html), a [local network](https://github.com/Shard-Labs/starknet-devnet/), and a [testing framework](https://docs.pytest.org/en/6.2.x/).
+> Note that we're installing `nile v0.8.1b`. This is a beta release with additional functionality that will be very useful during this workshop.
+
+Run `init` to kickstart a new project. Nile will create the project directory structure and install dependencies such as [the Cairo language](https://www.cairo-lang.org/docs/quickstart.html), a [local network](https://github.com/Shard-Labs/starknet-devnet/), and a [testing framework](https://docs.pytest.org/en/6.2.x/).
+
 ```bash
 nile init
 ```
@@ -225,3 +234,23 @@ The main problem with this is that we need to manually re-export every function 
 With it, we can just add a `name`, `symbol`, premint amount and any features we want to our contract. In this example, I'll be creating the `UwuToken` and make it Pausable. Then I can copy to clipboard and paste it into `contracts/UwuTokenPausable.cairo`
 
 ![Wizard for Cairo](wizard.png)
+
+
+### Deploy to a public network
+
+To deploy to a public network like goerli or mainnet, contracts need to be declared first:
+
+```bash
+nile declare UwuToken --network goerli
+```
+
+Now we can run our deployment script against the `goerli` testnet:
+
+```bash
+nile run scripts/deploy.py --network goerli
+```
+
+
+## Extra mile
+
+Develop your own custom contract using the [OpenZeppelin Contracts for Cairo](https://docs.openzeppelin.com/contracts-cairo) library!
