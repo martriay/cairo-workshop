@@ -225,5 +225,3 @@ The main problem with this is that we need to manually re-export every function 
 With it, we can just add a `name`, `symbol`, premint amount and any features we want to our contract. In this example, I'll be creating the `UwuToken` and make it Pausable. Then I can copy to clipboard and paste it into `contracts/UwuTokenPausable.cairo`
 
 ![Wizard for Cairo](wizard.png)
-
-## 5. Deploy to a public network
