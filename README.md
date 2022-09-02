@@ -153,9 +153,27 @@ ACCOUNT_A=207965718267142127099503064836527205057
 ACCOUNT_B=671421270995030648365272050552079657182
 ```
 
+That's it! We're ready to run:
+
+```bash
+nile run scripts/deploy.py
+```
+
+You should see something like this:
+
+```
+UwuToken deployed at 0x02cc100da2779fbf2d9f86281c3e7d459167deb372fb21c2e0e8527fdb0812ea
+total supply: 1337.0
+token name: UwuToken
+token symbol: UWU
+```
+
+## 4. Interact with it
+
 We can go one step further and write a script to transfer funds between accounts:
 
 ```python
+# scripts/transfer.py
 from nile.utils import *
 
 ALIAS = "uwu_token"
@@ -198,8 +216,13 @@ def from_hex(x):
 
 ```
 
+And again, we run:
 
-## 4. Write a custom contract (i.e. extend a library)
+```bash
+nile run scripts/transfer.py
+```
+
+## 5. Write a custom contract (i.e. extend a library)
 
 Without inheritance or another language native extensibility system, we need to come up with our own rules to safely extend existing modules to e.g. build our own custom ERC20 based on a standard library one.
 
