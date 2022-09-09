@@ -1,3 +1,4 @@
+import time
 from nile.utils import *
 
 ALIAS = "uwu_token"
@@ -21,6 +22,10 @@ def run(nre):
 
     token_address, _ = nre.deploy("UwuToken", arguments, alias=ALIAS)
     print("UwuToken deployed at", token_address)
+
+    wait = 1 # seconds
+    print(f"Waiting {wait} seconds for it to get confirmed")
+    time.sleep(wait)
 
     supply = from_hex(nre.call("uwu_token", "totalSupply")[0])
     print("total supply:", from_decimals(supply))

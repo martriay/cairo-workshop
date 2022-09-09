@@ -1,3 +1,4 @@
+import time
 from nile.utils import *
 
 ALIAS = "uwu_token"
@@ -16,6 +17,10 @@ def run(nre):
 
     print(f"transfer {from_decimals(from_uint(amount))} to {account_b.address}")
     account_a.send(token_address, 'transfer', [recipient, *amount], max_fee=0)
+
+    wait = 1 # seconds
+    print(f"Waiting {wait} seconds for it to get confirmed")
+    time.sleep(wait)
 
     print_balance(nre, account_a.address, 'a')
     print_balance(nre, account_b.address, 'b')
