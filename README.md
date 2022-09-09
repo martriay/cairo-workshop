@@ -35,7 +35,7 @@ source env/bin/activate
 Install the [Nile](https://github.com/OpenZeppelin/nile) development environment and the [OpenZeppelin Contracts](https://github.com/OpenZeppelin/cairo-contracts/).
 
 ```bash
-pip install cairo-lang cairo-nile==0.8.1b openzeppelin-cairo-contracts
+pip install cairo-lang cairo-nile openzeppelin-cairo-contracts
 ```
 
 > Note that we're installing `nile v0.8.1b`. This is a beta release with additional functionality that will be very useful during this workshop.
