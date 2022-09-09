@@ -1,6 +1,6 @@
 # Getting Started with Cairo (workshop) 👶🏻✨
 
-This repository works as an introductory guide to develop StarkNet smart contracts with the [Cairo](cairo-lang.org) programming language, the [OpenZeppelin Contracts for Cairo](https://github.com/OpenZeppelin/cairo-contracts/) library, and the [Nile](https://github.com/OpenZeppelin/nile/) development environment.
+Along with the slides ([🇬🇧eng](https://docs.google.com/presentation/d/1huYaO3NU8rJlqoQlyX8OhOgqMzq7P7B03_mEddPUJsE) / [🇪🇸spa](https://docs.google.com/presentation/d/1LUsjUU82w-Gs69UuBwrykYGtwCkf2RjzPT70J0FJAw8)), this repository works as an introductory guide to develop StarkNet smart contracts with the [Cairo](cairo-lang.org) programming language, the [OpenZeppelin Contracts for Cairo](https://github.com/OpenZeppelin/cairo-contracts/) library, and the [Nile](https://github.com/OpenZeppelin/nile/) development environment.
 
 #### Resources:
 
