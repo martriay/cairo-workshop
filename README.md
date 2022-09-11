@@ -35,8 +35,10 @@ source env/bin/activate
 Install the [Nile](https://github.com/OpenZeppelin/nile) development environment and the [OpenZeppelin Contracts](https://github.com/OpenZeppelin/cairo-contracts/).
 
 ```bash
-pip install cairo-lang cairo-nile openzeppelin-cairo-contracts
+pip install cairo-lang cairo-nile openzeppelin-cairo-contracts==0.4.0b
 ```
+
+> Note that we're installing Contracts `v0.4.0b`. This is a beta release that works with the new Cairo 0.10 syntax.
 
 Run `init` to kickstart a new project. Nile will create the project directory structure and install dependencies such as [the Cairo language](https://www.cairo-lang.org/docs/quickstart.html), a [local network](https://github.com/Shard-Labs/starknet-devnet/), and a [testing framework](https://docs.pytest.org/en/6.2.x/).
 
