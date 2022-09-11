@@ -38,8 +38,6 @@ Install the [Nile](https://github.com/OpenZeppelin/nile) development environment
 pip install cairo-lang cairo-nile openzeppelin-cairo-contracts
 ```
 
-> Note that we're installing `nile v0.8.1b`. This is a beta release with additional functionality that will be very useful during this workshop.
-
 Run `init` to kickstart a new project. Nile will create the project directory structure and install dependencies such as [the Cairo language](https://www.cairo-lang.org/docs/quickstart.html), a [local network](https://github.com/Shard-Labs/starknet-devnet/), and a [testing framework](https://docs.pytest.org/en/6.2.x/).
 
 ```bash
